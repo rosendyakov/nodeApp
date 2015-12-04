@@ -1,6 +1,17 @@
 /**
  * Created by rosen on 04/12/2015.
  */
+var mongodb = require('mongodb');
+//and our HTTP server
+var http = require('http');
+//setup our port
+var port = process.env.PORT || 1337;
+
+var uri = 'mongodb://rosendyakov:0886540590r@ds054308.mongolab.com:54308/mongodatabase';
+
+
+var MongoClient = mongodb.MongoClient;
+
 http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.write('Connecting \n');
@@ -31,6 +42,7 @@ http.createServer(function(request, response) {
                 response.end('Finished, Connection closed \n');
                 //remove any other db.close or response.end statement below this line
             });
+
 
             // do some work here with the database.
 
