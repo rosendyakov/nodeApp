@@ -17,7 +17,7 @@ http.createServer(function(request, response) {
         'Access-Control-Allow-Origin' : '*' });
 
 
-    client.get('search/tweets', {q: 'boobs'}, function(error, tweets){
+    client.get('search/tweets', {q: 'lolcats'}, function(error, tweets){
         response.end(JSON.stringify(tweets));
     });
 
