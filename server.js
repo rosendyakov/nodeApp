@@ -1,1 +1,1 @@
-require('./retrieve.js');
+require('./retrieve');
