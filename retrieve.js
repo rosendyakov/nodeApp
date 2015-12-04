@@ -1,3 +1,14 @@
+var mongodb = require('mongodb');
+//and our HTTP server
+var http = require('http');
+//setup our port
+var port = process.env.PORT || 1337;
+
+var uri = 'mongodb://rosendyakov:0886540590r@ds054308.mongolab.com:54308/mongodatabase';
+
+
+var MongoClient = mongodb.MongoClient;
+
 http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.write('Connecting \n');
@@ -13,7 +24,6 @@ http.createServer(function(request, response) {
             response.write('Connection established to' + uri +"\n");
             var collection = db.collection('users');
             var results = collection.find({name: 'modulus user'});
-
             results.each(function (err, result) {
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
@@ -23,10 +33,9 @@ http.createServer(function(request, response) {
                 if (err) {
                     response.write(err);
                 } else {
-                    response.write('Fetched: ' + result.name + " : " + result.age + " : " + result.roles.toString() +'\n');
+                    response.write('Fetched: ' + result.name + " : " + result.age + " : " + result.roles.toString() +'\n'+'kit ying chushka');
                 }
             });
-
 
             // do some work here with the database.
 
@@ -37,6 +46,3 @@ http.createServer(function(request, response) {
     });
 
 }).listen(port);
-/**
- * Created by rosen on 04/12/2015.
- */
