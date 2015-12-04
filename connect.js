@@ -21,7 +21,7 @@ http.createServer(function(request, response) {
             db.close();
         } else {
             //HURRAY!! We are connected. :)
-            response.write('Connection established to' + url +"\n");
+            response.write('Connection established to' + uri +"\n");
 
             // do some work here with the database.
 
