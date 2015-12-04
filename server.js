@@ -1,1 +1,1 @@
-require('./Insert.js');
+require('./Insert');
