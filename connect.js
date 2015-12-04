@@ -1,8 +1,10 @@
 var mongodb = require('mongodb');
 //and our HTTP server
-var http = require('mongodb://rosendyakov:0886540590r@ds054308.mongolab.com:54308/mongodatabase');
+var http = require('http');
 //setup our port
 var port = process.env.PORT || 1337;
+
+var uri = require('mongodb://rosendyakov:0886540590r@ds054308.mongolab.com:54308/mongodatabase');
 
 
 var MongoClient = mongodb.MongoClient;
@@ -11,7 +13,7 @@ http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.write('Connecting \n');
     // Use connect method to connect to the Server
-    MongoClient.connect(url, function (err, db) {
+    MongoClient.connect(uri, function (err, db) {
         response.write('Connection Made \n');
         if (err) {
             response.write('Unable to connect to the mongoDB server. Error:' + err + "\n");
