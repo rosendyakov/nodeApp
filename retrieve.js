@@ -23,7 +23,7 @@ http.createServer(function(request, response) {
             //HURRAY!! We are connected. :)
             response.write('Connection established to' + uri +"\n");
             var collection = db.collection('users');
-            var results = collection.find({name: 'modulus user'});
+            var results = collection.find();
             results.each(function (err, result) {
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
@@ -33,7 +33,7 @@ http.createServer(function(request, response) {
                 if (err) {
                     response.write(err);
                 } else {
-                    response.write('Fetched: ' + result.name + " : " + result.age + " : " + result.roles.toString() +'\n'+'kit ying chushka');
+                    response.write('Fetched: ' + result.name + " : " + result.age + " : " + result.roles.toString() +'\n');
                 }
             });
 
