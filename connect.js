@@ -1,3 +1,12 @@
+var mongodb = require('mongodb');
+//and our HTTP server
+var http = require('mongodb://rosendyakov:0886540590r@ds054308.mongolab.com:54308/mongodatabase');
+//setup our port
+var port = process.env.PORT || 1337;
+
+
+var MongoClient = mongodb.MongoClient;
+
 http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.write('Connecting \n');
@@ -21,3 +30,4 @@ http.createServer(function(request, response) {
     });
 
 }).listen(port);
+
